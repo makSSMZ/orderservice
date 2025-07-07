@@ -22,7 +22,7 @@ docker-compose up --build
 
 ### API
 ```
-GET /orders/{order_uid} — Получить заказ по ID
+GET /order/{order_uid} — Получить заказ по ID
 ```
 
 #### Пример:
