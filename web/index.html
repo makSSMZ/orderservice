@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Order Lookup</title>
+</head>
+<body>
+	<h1>Найти заказ по ID</h1>
+	<input type="text" id="orderId" placeholder="Введитте Order ID">
+	<button onclick="fetchOrder()">Find</button>
+	<pre id="result"></pre>
+
+	<script>
+		async function fetchOrder() {
+			const id = document.getElementById("orderId").value;
+			const res = await fetch(`/order/${id}`);
+			if (res.ok) {
+				const data = await res.json();
+				document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+			} else {
+				document.getElementById("result").textContent = "Order не найден";
+			}
+		}
+	</script>
+</body>
+</html>
